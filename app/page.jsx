@@ -4,7 +4,7 @@ import AllCategoriesCard from "@/components/card/category-card/AllCategoriesCard
 import AllBestSellingCard from "@/components/card/product/bestSelling/AllBestSellingCard";
 import AllCards from "@/components/card/youMayLike/AllCards";
 import Slider from "@/components/carosel/Slider";
-import DeliveryDesktop from "@/components/delivery-partner/deliveryDesktop";
+import DeliveryDesktop from "@/components/delivery-partner/DeliveryDesktop";
 import TinySlider from "@/components/tiny-carosel/TinySlider";
 
 export default function Home() {
