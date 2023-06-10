@@ -1,3 +1,4 @@
+"use client";
 import SingleCard from "@/components/card/youMayLike/SingleCard";
 import Brand from "@/components/shop/Brand";
 import Color from "@/components/shop/Color";
@@ -11,6 +12,16 @@ import TopBar from "@/components/shop/TopBar";
 import React from "react";
 import { BsArrowBarRight } from "react-icons/bs";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/scrollbar";
+
+// import required modules
+import { Scrollbar } from "swiper";
+
 const Products = () => {
   return (
     <>
@@ -20,7 +31,44 @@ const Products = () => {
             title="Designer Wear"
             desc="All collection of new products, exclusive collections, the latest trends, and more."
           />
-          <div className="py-4 border-b-2 flex items-center justify-between">
+          <div className="block lg:hidden card-mobile mt-6">
+            <Swiper
+              slidesPerView={3}
+              spaceBetween={12}
+              scrollbar={{
+                hide: false,
+              }}
+              modules={[Scrollbar]}
+              className=""
+            >
+              <SwiperSlide>
+                <Filter />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Brand />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Size />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Price />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Discount />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Delivery />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Color />
+              </SwiperSlide>
+              <SwiperSlide>
+                <SortBy />
+              </SwiperSlide>
+            </Swiper>
+          </div>
+
+          <div className="hidden lg:flex py-4 border-b-2  items-center justify-between">
             <Filter />
             <div className="flex gap-4">
               <Brand />

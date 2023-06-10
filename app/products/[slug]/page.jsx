@@ -8,7 +8,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 //drawer import here
-import Drawer from "react-modern-drawer";
+// import Drawer from "react-modern-drawer";
+import dynamic from "next/dynamic";
+
+const Drawer = dynamic(() => import("react-modern-drawer"), {
+  ssr: false,
+});
+
 import "react-modern-drawer/dist/index.css";
 import DrawerContent from "@/components/drawer/DrawerContent";
 
@@ -17,9 +23,9 @@ import SimilarProductsCarosel from "@/components/similar-products/SimilarProduct
 import useWindowDimensions from "@/components/useDimensionWindow";
 import ProductDetailsComponent from "@/components/product-detail/ProductDetailsComponent";
 import DetailImage from "@/components/product-detail/DetailImagePage";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Accordion from "@/components/Accordion";
-import ProductModal from "@/components/modal/ProductModal";
+import { ProductData } from "@/data/product";
 
 const ProductDetails = () => {
   const [isScrollingUp, setIsScrollingUp] = useState(false);
@@ -74,51 +80,21 @@ const ProductDetails = () => {
               <Swiper
                 modules={[Pagination]}
                 loop={true}
-                autoplay={{
-                  delay: 3000,
-                }}
+                spaceBetween={20}
                 slidesPerView={1}
                 pagination={{ clickable: true }}
               >
-                <SwiperSlide>
-                  <Image
-                    src="/images/products/details.png"
-                    alt="details"
-                    width={600}
-                    height={600}
-                    className="w-full"
-                    onClick={() => setCloseModal(true)}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src="/images/products/details1.png"
-                    alt="details"
-                    width={600}
-                    height={600}
-                    className="w-full"
-                    onClick={() => setCloseModal(true)}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src="/images/products/details2.png"
-                    alt="details"
-                    width={600}
-                    height={600}
-                    className="w-full"
-                    onClick={() => setCloseModal(true)}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src="/images/products/details3.png"
-                    alt="details"
-                    width={600}
-                    height={600}
-                    className="w-full"
-                  />
-                </SwiperSlide>
+                {ProductData.data.map((x, i) => (
+                  <SwiperSlide key={i}>
+                    <Image
+                      src={x.src}
+                      alt="details"
+                      width={800}
+                      height={1100}
+                      className="w-full"
+                    />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </div>

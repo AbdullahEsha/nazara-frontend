@@ -32,7 +32,7 @@ const TopBar = ({ title, desc }) => {
         </div>
       </div>
 
-      <div className="text-center">
+      <div className="text-center mt-2 lg:mt-0">
         <h1 className="text-2xl font-semibold mb-2 text-gray-800">
           {uppercase}
         </h1>

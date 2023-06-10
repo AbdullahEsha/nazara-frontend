@@ -4,7 +4,7 @@ import ShopButton from "./ShopButton";
 const SortBy = () => {
   return (
     <div className="group relative z-10">
-      <button className="flex gap-1 items-center bg-gray-200 py-2 px-4 rounded-full font-medium min-w-full justify-center">
+      <button className="flex gap-1 items-center bg-gray-200 py-2 lg:px-4 rounded-full font-medium min-w-full justify-center">
         <BiSort size={20} /> Sort By
       </button>
       <div className="h-2 w-24"></div>
